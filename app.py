@@ -23,8 +23,19 @@ def set_bg_image(image_path):
     )
 st.set_page_config("PragyanAI Content Generator", layout="wide")
 set_bg_image("image.jpg")
+st.set_page_config("PragyanAI Content Generator", layout="wide")
 
-st.title("🫦 OHMIES - YOUR NEIGHBOURHOOD AI")
+st.markdown("""
+<style>
+[data-testid="stVerticalBlock"] {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 12px;
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.title(" OHMIES - YOUR NEIGHBOURHOOD AI 🫦")
 
 client = Groq(api_key=st.secrets["navdeep"])
 
