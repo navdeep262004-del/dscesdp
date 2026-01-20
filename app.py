@@ -1,7 +1,29 @@
 import streamlit as st
 from groq import Groq
 
+import streamlit as st
+import base64
+
+def set_bg_image(image_path):
+    with open(image_path, "rb") as image_file:
+        encoded = base64.b64encode(image_file.read()).decode()
+
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-image: url("data:image/jpg;base64,{encoded}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 st.set_page_config("PragyanAI Content Generator", layout="wide")
+set_bg_image("image.jpg")
+
 st.title("🫦 OHMIES - YOUR NEIGHBOURHOOD AI")
 
 client = Groq(api_key=st.secrets["navdeep"])
